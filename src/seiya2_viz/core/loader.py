@@ -1,6 +1,6 @@
 # data_loader.py
 import pandas as pd
-import config
+from .. import config
 
 def load_sheet(sheet_name: str, usecols=None) -> pd.DataFrame | None:
     """

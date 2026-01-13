@@ -1,8 +1,8 @@
 # main.py
 
 import time
-import plot_utils
-from plotting import kpi, currency, user_base, hero, activities
+from seiya2_viz.utils import plotting
+from seiya2_viz.modules import kpi, currency, user_base, hero, activities
 
 def main():
     """
@@ -14,7 +14,7 @@ def main():
     print("=========================================")
 
     # 1. 设置图表样式
-    plot_utils.setup_matplotlib_style()
+    plotting.setup_matplotlib_style()
 
     # 2. 生成各类图表
     kpi.generate_all()

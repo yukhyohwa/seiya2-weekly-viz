@@ -2,8 +2,8 @@
 __pycache__/
 *.py[cod]
 
-# 忽略输出的数据文件 (非常重要)
-report_images/
+# 忽略输出的数据文件
+reports/
 *.jpg
 *.png
 

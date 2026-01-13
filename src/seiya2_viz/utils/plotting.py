@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import config
+from .. import config
 
 def setup_matplotlib_style():
     """应用自定义的matplotlib样式"""

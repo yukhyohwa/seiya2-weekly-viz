@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import data_loader
-import config
-import processors
-from plot_utils import save_plot
+from ..core import loader
+from .. import config
+from ..core import processors
+from ..utils.plotting import save_plot
 
 # ----------------------------------
 # Reusable Activity Plotting Functions
@@ -238,6 +238,6 @@ def generate_all():
 
     for name, (sheet, plot_func) in activities_map.items():
         print(f"\n-- Plotting for {name} --")
-        df = data_loader.load_sheet(sheet)
+        df = loader.load_sheet(sheet)
         if df is not None:
             plot_func(df)

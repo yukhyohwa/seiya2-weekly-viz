@@ -1,10 +1,10 @@
 # plotting/kpi.py
 import pandas as pd
 import matplotlib.pyplot as plt
-import data_loader
-import config
-import processors
-from plot_utils import save_plot, plot_stacked_bar
+from ..core import loader
+from .. import config
+from ..core import processors
+from ..utils.plotting import save_plot, plot_stacked_bar
 
 def plot_kpi_weekly(df: pd.DataFrame):
     """生成周KPI概览图表"""
@@ -102,21 +102,21 @@ def generate_all():
     print("\n--- Generating KPI Plots ---")
     
     # 周KPI
-    df_wkly = data_loader.load_sheet('KPI_WKLY')
+    df_wkly = loader.load_sheet('KPI_WKLY')
     if df_wkly is not None:
         plot_kpi_weekly(df_wkly)
         
     # 日KPI
-    df_daily = data_loader.load_sheet('KPI_DAILY')
+    df_daily = loader.load_sheet('KPI_DAILY')
     if df_daily is not None:
         plot_kpi_daily(df_daily)
         
     # 渠道KPI
-    df_channel = data_loader.load_sheet('KPI_CHANNEL')
+    df_channel = loader.load_sheet('KPI_CHANNEL')
     if df_channel is not None:
         plot_kpi_channel(df_channel)
         
     # 用户KPI
-    df_user = data_loader.load_sheet('KPI_USER')
+    df_user = loader.load_sheet('KPI_USER')
     if df_user is not None:
         plot_kpi_user(df_user)

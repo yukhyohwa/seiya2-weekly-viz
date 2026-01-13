@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 # -----------------
 # 路径配置 (请根据您的环境修改)
 # -----------------
-# 脚本的根目录
-BASE_DIR = Path(__file__).parent
-# 输入的Excel文件路径 (指向项目根目录下的文件)
-INPUT_FILE = BASE_DIR / 'SEIYA2CN_WKLYREPORT_version3.xlsx'
-# 生成图片的输出目录 (在项目根目录下)
-OUTPUT_DIR = BASE_DIR / 'report_images'
+# 脚本的根目录 (项目根目录)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+# 输入的Excel文件路径
+INPUT_FILE = PROJECT_ROOT / 'data' / 'raw' / 'SEIYA2CN_WKLYREPORT_version3.xlsx'
+# 生成图片的输出目录
+OUTPUT_DIR = PROJECT_ROOT / 'reports'
 
 # 确保输出目录存在
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,6 @@
 # processors.py
 import pandas as pd
-import config
+from .. import config
 
 def process_kpi_channel_data(df: pd.DataFrame) -> pd.DataFrame:
     """处理KPI CHANNEL数据，按wau对渠道进行排名和分组。"""

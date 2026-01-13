@@ -1,10 +1,10 @@
 # plotting/currency.py
 import pandas as pd
 import matplotlib.pyplot as plt
-import data_loader
-import config
-import processors
-from plot_utils import save_plot, plot_stacked_bar
+from ..core import loader
+from .. import config
+from ..core import processors
+from ..utils.plotting import save_plot, plot_stacked_bar
 
 def plot_cur_spend(df: pd.DataFrame):
     """生成钻石消耗图表"""
@@ -80,11 +80,11 @@ def generate_all():
     print("\n--- Generating Currency Plots ---")
     
     # 货币消耗 (移除usecols限制，以确保'backdiamond'列被加载)
-    df_spend = data_loader.load_sheet('CUR_SPEND')
+    df_spend = loader.load_sheet('CUR_SPEND')
     if df_spend is not None:
         plot_cur_spend(df_spend)
 
     # 货币存量
-    df_stock = data_loader.load_sheet('CUR_STOCK', usecols=range(21))
+    df_stock = loader.load_sheet('CUR_STOCK', usecols=range(21))
     if df_stock is not None:
         plot_cur_stock(df_stock)

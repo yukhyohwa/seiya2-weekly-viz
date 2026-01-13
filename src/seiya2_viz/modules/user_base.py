@@ -1,9 +1,9 @@
 # plotting/user_base.py
 import pandas as pd
 import matplotlib.pyplot as plt
-import data_loader
-import config
-from plot_utils import save_plot
+from ..core import loader
+from .. import config
+from ..utils.plotting import save_plot
 
 def plot_kpi_zone(df: pd.DataFrame):
     """生成按战区划分的WNU和Sales图表"""
@@ -90,10 +90,10 @@ def generate_all():
     """生成所有用户基础相关的图表"""
     print("\n--- Generating User Base Plots ---")
     
-    df_zone = data_loader.load_sheet('KPI_ZONE', usecols=range(7))
+    df_zone = loader.load_sheet('KPI_ZONE', usecols=range(7))
     if df_zone is not None:
         plot_kpi_zone(df_zone)
         
-    df_sales_index = data_loader.load_sheet('SALES_INDEX', usecols=range(4))
+    df_sales_index = loader.load_sheet('SALES_INDEX', usecols=range(4))
     if df_sales_index is not None:
         plot_sales_index(df_sales_index)
