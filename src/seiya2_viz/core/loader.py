@@ -17,7 +17,7 @@ def load_sheet(sheet_name: str, usecols=None) -> pd.DataFrame | None:
     try:
         df = pd.read_excel(config.INPUT_FILE, sheet_name=sheet_name, usecols=usecols)
         # 将ODPS的空值'\N'替换为0
-        df = df.replace(r'\N', 0)
+        df = df.replace(r'\N', 0).infer_objects(copy=False)
         print(f"Successfully loaded and cleaned sheet: '{sheet_name}'.")
         return df
     except FileNotFoundError:

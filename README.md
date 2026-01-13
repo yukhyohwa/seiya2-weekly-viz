@@ -51,7 +51,6 @@ seiya2-weekly-viz/
 │       ├── utils/         # 通用工具
 │       └── config.py      # 项目配置
 ├── reports/               # 生成的分析报告图片
-├── tests/                 # 测试代码
 ├── requirements.txt      # 依赖库
 └── README.md              # 项目说明
 ```
