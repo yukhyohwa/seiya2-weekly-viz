@@ -6,17 +6,17 @@ from seiya2_viz.modules import kpi, currency, user_base, hero, activities
 
 def main():
     """
-    主函数，按顺序执行周报所有图表的生成.
+    Main function to execute all weekly report chart generation in sequence.
     """
     start_time = time.time()
     print("=========================================")
     print("  Seiya2 Weekly Report Generation Start  ")
     print("=========================================")
 
-    # 1. 设置图表样式
+    # 1. Set chart style
     plotting.setup_matplotlib_style()
 
-    # 2. 生成各类图表
+    # 2. Generate various types of charts
     kpi.generate_all()
     currency.generate_all()
     user_base.generate_all()

@@ -4,19 +4,19 @@ from .. import config
 
 def load_sheet(sheet_name: str, usecols=None) -> pd.DataFrame | None:
     """
-    从配置的Excel文件中加载一个工作表。
+    Load a worksheet from the configured Excel file.
 
     Args:
-        sheet_name: 要加载的工作表名称。
-        usecols: 要加载的列范围。
+        sheet_name: Name of the sheet to load.
+        usecols: Range of columns to load.
 
     Returns:
-        一个Pandas DataFrame，如果失败则返回None。
+        A Pandas DataFrame, or None if failed.
     """
     print(f"Loading sheet: '{sheet_name}'...")
     try:
         df = pd.read_excel(config.INPUT_FILE, sheet_name=sheet_name, usecols=usecols)
-        # 将ODPS的空值'\N'替换为0
+        # Replace ODPS null value '\N' with 0
         df = df.replace(r'\N', 0).infer_objects(copy=False)
         print(f"Successfully loaded and cleaned sheet: '{sheet_name}'.")
         return df

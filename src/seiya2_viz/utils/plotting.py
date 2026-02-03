@@ -5,19 +5,19 @@ import numpy as np
 from .. import config
 
 def setup_matplotlib_style():
-    """应用自定义的matplotlib样式"""
+    """Apply custom matplotlib styles"""
     style = config.get_plot_style()
     plt.rcParams.update(style)
     print("Matplotlib style updated.")
 
 def save_plot(fig, filename, subdirectory=None):
     """
-    将图表保存到输出目录.
+    Save the chart to the output directory.
     
     Args:
-        fig: matplotlib figure 对象.
-        filename: 输出文件名.
-        subdirectory: 在输出目录中可选的子目录.
+        fig: matplotlib figure object.
+        filename: Output filename.
+        subdirectory: Optional subdirectory within the output directory.
     """
     output_path = config.OUTPUT_DIR
     if subdirectory:
@@ -37,20 +37,20 @@ def plot_stacked_bar(df, ax, x_col, y_col, category_col, title,
                      xtick_rotation=0, legend_loc='best',
                      colors=None):
     """
-    使用pivot_table创建一个更简洁的堆叠柱状图。
+    Create a clean stacked bar chart using pivot_table.
 
     Args:
-        df: 包含数据的Pandas DataFrame。
-        ax: Matplotlib axes对象。
-        x_col: 作为x轴的列名。
-        y_col: 作为y轴（值）的列名。
-        category_col: 用于堆叠的分类列名。
-        title: 图表标题。
+        df: Pandas DataFrame containing the data.
+        ax: Matplotlib axes object.
+        x_col: Column name for the x-axis.
+        y_col: Column name for the y-axis (values).
+        category_col: Column name for stacking categories.
+        title: Chart title.
     """
     colors = colors or config.DEFAULT_COLORS
     pivot_df = df.pivot_table(index=x_col, columns=category_col, values=y_col, aggfunc='sum').fillna(0)
     
-    # 如果有分类顺序，则按此排序
+    # Sort categories if a specific order is needed
     if category_col == 'regmonth2': # Example of specific ordering
         # Try to sort by converting to numeric, ignore errors for non-numeric
         sorted_cols = sorted(pivot_df.columns, key=lambda x: pd.to_numeric(x, errors='coerce'), reverse=True)
