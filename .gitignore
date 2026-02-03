@@ -1,18 +1,18 @@
-# Python 缓存文件
+# Python cache files
 __pycache__/
 *.py[cod]
 
-# 忽略输出的数据文件
+# Ignore output report files
 reports/
 *.jpg
 *.png
 
-# 忽略數據文件
+# Ignore data files
 *.xlsx
 
-# IDE 配置文件
+# IDE configuration files
 .vscode/
 .idea/
 
-# 环境变量文件 (如果以后用的话)
+# Environment variable file
 .env
